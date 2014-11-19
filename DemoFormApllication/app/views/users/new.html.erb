@@ -1,0 +1,22 @@
+<h4> Reviews for my Teaching - <i> OralInc. </i></h4> <br>
+<%= image_tag('mac.png', :size => "150x120") %> <br>
+
+<h5> Reviews for my Lectures </h5>
+<div id = "rev">
+  <% if !@users.blank? %>
+  <% for item in @users %>
+      <%= item.name %>
+          <% item.review %>
+          <br>
+          <%end%>
+      <%else%>
+  <%end%>
+</div>
+
+<hr>
+Enter Reviews - <br><br>
+<%= form_for @user do |f| %>
+Name: <%= f.text_field :name %>
+Review: <%= f.text_field :review %>
+<%= f.submit "Submit Review" %>
+<% end %>
